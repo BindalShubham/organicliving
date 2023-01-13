@@ -30,17 +30,17 @@ namespace OrganicLivingApi.Controllers
             return "value";
         }
 
-        // POST api/Images
+        // POST api/Images/Upload
         [HttpPost("Upload")]
-        public async Task<bool> Post([FromBody] UploadImageInput value)
+        public async Task<string> Post([FromBody] UploadImageInput value)
         {
-            if (value != null && !string.IsNullOrWhiteSpace(value.Image)) 
+            if (value != null && !string.IsNullOrWhiteSpace(value.Image))
             {
                 _logger.LogInformation("Received Image.");
-                return true;
+                return "Received Image";
             }
 
-            return false;
+            return "No Image Received";
         }
 
         // PUT api/Images/5
